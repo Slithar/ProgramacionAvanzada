@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Clase.o \
+	${OBJECTDIR}/Entrenamiento.o \
 	${OBJECTDIR}/Spinning.o \
 	${OBJECTDIR}/main.o
 
@@ -68,6 +69,11 @@ ${OBJECTDIR}/Clase.o: Clase.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Clase.o Clase.cpp
+
+${OBJECTDIR}/Entrenamiento.o: Entrenamiento.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Entrenamiento.o Entrenamiento.cpp
 
 ${OBJECTDIR}/Spinning.o: Spinning.cpp
 	${MKDIR} -p ${OBJECTDIR}
