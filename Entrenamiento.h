@@ -13,7 +13,8 @@
 
 #ifndef ENTRENAMIENTO_H
 #define ENTRENAMIENTO_H
-#include "Clase.h";
+#include "Clase.h"
+using namespace std;
 class Entrenamiento : public Clase {
 private:
     bool enRambla;

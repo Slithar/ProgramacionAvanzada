@@ -14,6 +14,7 @@
 #ifndef SPINNING_H
 #define SPINNING_H
 #include "Clase.h"
+using namespace std;
 class Spinning : public Clase {
     
 private:
