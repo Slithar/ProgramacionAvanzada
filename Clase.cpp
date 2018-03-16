@@ -19,6 +19,10 @@ Clase::Clase(int id, string nombre){
     this->nombre = nombre;
 }
 /*Getters*/
+
+Turno Clase::getTurno(){
+    return this->turno;
+}
 int Clase::getId(){
     return this->id;
 }
@@ -27,6 +31,11 @@ string Clase::getNombre(){
     return this->nombre;
 }
 /*Setters*/
+
+void Clase::setTurno(Turno turno){
+    this->turno = turno;
+}
+
 void Clase::setId(int id){
     this->id = id;
 }

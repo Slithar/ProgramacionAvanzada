@@ -14,12 +14,13 @@
 #ifndef CLASE_H
 #define CLASE_H
 #include<string>
+#include "eTurno.h"
 using namespace std;
 class Clase {
 private:
     int id;
     string nombre;
-    /*Turno*/
+    Turno turno;
 
 public:
     Clase(int, string);
@@ -30,10 +31,11 @@ public:
     /*Setters*/
     void setId(int);
     void setNombre(string);
-    
+    void setTurno(Turno);
     /*Getters*/
     int getId();
     string getNombre();
+    Turno getTurno();
     
     /*Extra functions belonging to this class*/
     virtual int cupo()=0;
