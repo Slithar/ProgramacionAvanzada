@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Obligatorio1
+PROJECTNAME=ProgramacionAvanzada
 
 # Active Configuration
 DEFAULTCONF=Debug
