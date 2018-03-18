@@ -6,7 +6,7 @@
                    projectFiles="true">
       <itemPath>Clase.h</itemPath>
       <itemPath>Entrenamiento.h</itemPath>
-      <itemPath>Incripcion.h</itemPath>
+      <itemPath>Inscripcion.h</itemPath>
       <itemPath>Socio.h</itemPath>
       <itemPath>Spinning.h</itemPath>
       <itemPath>eTurno.h</itemPath>
@@ -57,7 +57,7 @@
       </item>
       <item path="Incripcion.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Incripcion.h" ex="false" tool="3" flavor2="0">
+      <item path="Inscripcion.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Socio.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -102,7 +102,7 @@
       </item>
       <item path="Incripcion.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Incripcion.h" ex="false" tool="3" flavor2="0">
+      <item path="Inscripcion.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Socio.cpp" ex="false" tool="1" flavor2="0">
       </item>

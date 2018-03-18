@@ -15,12 +15,15 @@
 #define CLASE_H
 #include<string>
 #include "eTurno.h"
+#include "Inscripcion.h"
 using namespace std;
 class Clase {
 private:
+    Inscripcion *inscripciones[50];
     int id;
     string nombre;
     Turno turno;
+    
 
 public:
     Clase(int, string);
@@ -32,10 +35,12 @@ public:
     void setId(int);
     void setNombre(string);
     void setTurno(Turno);
+    void setInscripcion(Inscripcion*[]);
     /*Getters*/
     int getId();
     string getNombre();
     Turno getTurno();
+    Inscripcion** getInscripcion();
     
     /*Extra functions belonging to this class*/
     virtual int cupo()=0;

@@ -13,14 +13,21 @@
 
 #ifndef INCRIPCION_H
 #define INCRIPCION_H
+#include "Socio.h"
 using namespace std;
-class Incripcion {
+class Inscripcion {
 public:
-    Incripcion();
-    Incripcion(const Incripcion& orig);
-    virtual ~Incripcion();
+    Inscripcion();
+    Inscripcion(const Inscripcion& orig);
+    virtual ~Inscripcion();
+    /*Getters*/
+    
+    Socio* getSocio();
+    /*Setters*/
+    
+    void setSocio(Socio*);
 private:
-
+    Socio* socio;
 };
 
 #endif /* INCRIPCION_H */

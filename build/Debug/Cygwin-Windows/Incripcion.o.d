@@ -1,3 +1,6 @@
-build/Debug/Cygwin-Windows/Incripcion.o: Incripcion.cpp Incripcion.h
+build/Debug/Cygwin-Windows/Incripcion.o: Incripcion.cpp Inscripcion.h \
+ Socio.h
 
-Incripcion.h:
+Inscripcion.h:
+
+Socio.h:

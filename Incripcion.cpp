@@ -11,14 +11,22 @@
  * Created on 16 de marzo de 2018, 04:33 PM
  */
 
-#include "Incripcion.h"
+#include "Inscripcion.h"
 
-Incripcion::Incripcion() {
+Socio* Inscripcion::getSocio(){
+    return this->socio;
 }
 
-Incripcion::Incripcion(const Incripcion& orig) {
+void Inscripcion::setSocio(Socio* socio){
+    this->socio = socio;
 }
 
-Incripcion::~Incripcion() {
+Inscripcion::Inscripcion() {
+}
+
+Inscripcion::Inscripcion(const Inscripcion& orig) {
+}
+
+Inscripcion::~Inscripcion() {
 }
 
