@@ -19,6 +19,14 @@ public:
     Fecha();
     Fecha(const Fecha& orig);
     virtual ~Fecha();
+    
+    int getDia();
+    int getMes();
+    int getAnio();
+    
+    void setDia(int);
+    void setMes(int);
+    void setAnio(int);
 private:
     int dia;
     int mes;
