@@ -20,6 +20,12 @@ public:
     DtSocio();
     DtSocio(const DtSocio& orig);
     virtual ~DtSocio();
+    
+    void setCi(int);
+    void setNombre(string);
+    
+    int getCi();
+    string getNombre();
 private:
     int CI;
     string nombre;

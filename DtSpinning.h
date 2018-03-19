@@ -19,6 +19,10 @@ public:
     DtSpinning();
     DtSpinning(const DtSpinning& orig);
     virtual ~DtSpinning();
+    
+    void setCantBicicletas(int);
+    
+    int getCantBicicletas();
 private:
     int cantBicicletas;
 };

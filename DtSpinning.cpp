@@ -13,6 +13,14 @@
 
 #include "DtSpinning.h"
 
+void DtSpinning::setCantBicicletas(int cantBicicletas){
+    this->cantBicicletas = cantBicicletas;
+}
+
+int DtSpinning::getCantBicicletas(){
+    return this->cantBicicletas;
+}
+
 DtSpinning::DtSpinning() {
 }
 

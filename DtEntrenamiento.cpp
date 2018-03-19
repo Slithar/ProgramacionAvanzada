@@ -13,6 +13,13 @@
 
 #include "DtEntrenamiento.h"
 
+void DtEntrenamiento::setEnRambla(bool enRambla){
+    this->enRambla = enRambla;
+}
+
+bool DtEntrenamiento::getEnRambla(){
+    return this->enRambla;
+}
 DtEntrenamiento::DtEntrenamiento() {
 }
 

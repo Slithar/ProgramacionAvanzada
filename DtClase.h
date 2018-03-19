@@ -21,6 +21,14 @@ public:
     DtClase();
     DtClase(const DtClase& orig);
     virtual ~DtClase();
+    
+    void setId(int);
+    void setNombre(string);
+    void SetTurno(Turno);
+    
+    int getId();
+    string getNombre();
+    Turno getTurno();
 private:
     int id;
     string nombre;

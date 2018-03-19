@@ -19,6 +19,10 @@ public:
     DtEntrenamiento();
     DtEntrenamiento(const DtEntrenamiento& orig);
     virtual ~DtEntrenamiento();
+    
+    void setEnRambla(bool);
+    
+    bool getEnRambla();
 private:
     bool enRambla;
 };
