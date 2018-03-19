@@ -22,7 +22,7 @@ void DtSocio::setNombre(string nombre){
     this->nombre = nombre;
 }
 
-int DtSocio::getCi(){
+string DtSocio::getCi(){
     return this->CI;
 }
 
@@ -32,6 +32,10 @@ string DtSocio::getNombre(){
 DtSocio::DtSocio() {
 }
 
+DtSocio::DtSocio(string ci, string nombre){
+    this->CI = ci;
+    this->nombre = nombre;
+}
 DtSocio::DtSocio(const DtSocio& orig) {
 }
 

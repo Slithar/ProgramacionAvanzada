@@ -20,6 +20,7 @@ private:
     string CI;
     string nombre;
 public:
+    Socio(string,string);
     Socio();
     Socio(const Socio& orig);
     virtual ~Socio();

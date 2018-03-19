@@ -28,6 +28,11 @@ string Socio::getCI(){
 string Socio::getNombre(){
     return this->nombre;
 }
+
+Socio::Socio(string ci, string nombre){
+    this->CI = ci;
+    this->nombre = nombre;
+}
 Socio::Socio() {
 }
 

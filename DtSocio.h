@@ -18,16 +18,17 @@ using namespace std;
 class DtSocio {
 public:
     DtSocio();
+    DtSocio(string, string);
     DtSocio(const DtSocio& orig);
     virtual ~DtSocio();
     
     void setCi(int);
     void setNombre(string);
     
-    int getCi();
+    string getCi();
     string getNombre();
 private:
-    int CI;
+    string CI;
     string nombre;
 };
 
