@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
-CND_DLIB_EXT=dll
+CND_PLATFORM=GNU-Linux
+CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -36,7 +36,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Clase.o \
+	${OBJECTDIR}/DtClase.o \
+	${OBJECTDIR}/DtEntrenamiento.o \
+	${OBJECTDIR}/DtSocio.o \
+	${OBJECTDIR}/DtSpinning.o \
 	${OBJECTDIR}/Entrenamiento.o \
+	${OBJECTDIR}/Fecha.o \
 	${OBJECTDIR}/Incripcion.o \
 	${OBJECTDIR}/Socio.o \
 	${OBJECTDIR}/Spinning.o \
@@ -61,9 +66,9 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/programacionavanzada.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/programacionavanzada
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/programacionavanzada.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/programacionavanzada: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/programacionavanzada ${OBJECTFILES} ${LDLIBSOPTIONS}
 
@@ -72,10 +77,35 @@ ${OBJECTDIR}/Clase.o: Clase.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Clase.o Clase.cpp
 
+${OBJECTDIR}/DtClase.o: DtClase.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtClase.o DtClase.cpp
+
+${OBJECTDIR}/DtEntrenamiento.o: DtEntrenamiento.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtEntrenamiento.o DtEntrenamiento.cpp
+
+${OBJECTDIR}/DtSocio.o: DtSocio.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtSocio.o DtSocio.cpp
+
+${OBJECTDIR}/DtSpinning.o: DtSpinning.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtSpinning.o DtSpinning.cpp
+
 ${OBJECTDIR}/Entrenamiento.o: Entrenamiento.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Entrenamiento.o Entrenamiento.cpp
+
+${OBJECTDIR}/Fecha.o: Fecha.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Fecha.o Fecha.cpp
 
 ${OBJECTDIR}/Incripcion.o: Incripcion.cpp
 	${MKDIR} -p ${OBJECTDIR}

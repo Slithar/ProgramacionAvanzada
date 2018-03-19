@@ -5,7 +5,12 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Clase.h</itemPath>
+      <itemPath>DtClase.h</itemPath>
+      <itemPath>DtEntrenamiento.h</itemPath>
+      <itemPath>DtSocio.h</itemPath>
+      <itemPath>DtSpinning.h</itemPath>
       <itemPath>Entrenamiento.h</itemPath>
+      <itemPath>Fecha.h</itemPath>
       <itemPath>Inscripcion.h</itemPath>
       <itemPath>Socio.h</itemPath>
       <itemPath>Spinning.h</itemPath>
@@ -19,7 +24,12 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Clase.cpp</itemPath>
+      <itemPath>DtClase.cpp</itemPath>
+      <itemPath>DtEntrenamiento.cpp</itemPath>
+      <itemPath>DtSocio.cpp</itemPath>
+      <itemPath>DtSpinning.cpp</itemPath>
       <itemPath>Entrenamiento.cpp</itemPath>
+      <itemPath>Fecha.cpp</itemPath>
       <itemPath>Incripcion.cpp</itemPath>
       <itemPath>Socio.cpp</itemPath>
       <itemPath>Spinning.cpp</itemPath>
@@ -41,7 +51,7 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -51,9 +61,29 @@
       </item>
       <item path="Clase.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DtClase.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtClase.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtEntrenamiento.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtEntrenamiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtSocio.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtSocio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtSpinning.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtSpinning.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Entrenamiento.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Entrenamiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Fecha.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Fecha.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Incripcion.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -96,9 +126,29 @@
       </item>
       <item path="Clase.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DtClase.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtClase.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtEntrenamiento.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtEntrenamiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtSocio.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtSocio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtSpinning.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtSpinning.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Entrenamiento.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Entrenamiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Fecha.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Fecha.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Incripcion.cpp" ex="false" tool="1" flavor2="0">
       </item>
