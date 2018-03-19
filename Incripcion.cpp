@@ -17,8 +17,16 @@ Socio* Inscripcion::getSocio(){
     return this->socio;
 }
 
+Fecha* Inscripcion::getFecha(){
+    return this->fecha;
+}
+
 void Inscripcion::setSocio(Socio* socio){
     this->socio = socio;
+}
+
+void Inscripcion::setFecha(Fecha* fecha){
+    this->fecha = fecha;
 }
 
 Inscripcion::Inscripcion() {

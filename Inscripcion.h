@@ -14,6 +14,7 @@
 #ifndef INCRIPCION_H
 #define INCRIPCION_H
 #include "Socio.h"
+#include "Fecha.h"
 using namespace std;
 class Inscripcion {
 public:
@@ -23,11 +24,14 @@ public:
     /*Getters*/
     
     Socio* getSocio();
+    Fecha* getFecha();
     /*Setters*/
     
     void setSocio(Socio*);
+    void setFecha(Fecha*);
 private:
     Socio* socio;
+    Fecha* fecha;
 };
 
 #endif /* INCRIPCION_H */
