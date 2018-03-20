@@ -36,7 +36,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Clase.o \
+	${OBJECTDIR}/DtClase.o \
+	${OBJECTDIR}/DtEntrenamiento.o \
+	${OBJECTDIR}/DtSocio.o \
+	${OBJECTDIR}/DtSpinning.o \
 	${OBJECTDIR}/Entrenamiento.o \
+	${OBJECTDIR}/Fecha.o \
 	${OBJECTDIR}/Incripcion.o \
 	${OBJECTDIR}/Socio.o \
 	${OBJECTDIR}/Spinning.o \
@@ -72,10 +77,35 @@ ${OBJECTDIR}/Clase.o: Clase.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Clase.o Clase.cpp
 
+${OBJECTDIR}/DtClase.o: DtClase.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtClase.o DtClase.cpp
+
+${OBJECTDIR}/DtEntrenamiento.o: DtEntrenamiento.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtEntrenamiento.o DtEntrenamiento.cpp
+
+${OBJECTDIR}/DtSocio.o: DtSocio.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtSocio.o DtSocio.cpp
+
+${OBJECTDIR}/DtSpinning.o: DtSpinning.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtSpinning.o DtSpinning.cpp
+
 ${OBJECTDIR}/Entrenamiento.o: Entrenamiento.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Entrenamiento.o Entrenamiento.cpp
+
+${OBJECTDIR}/Fecha.o: Fecha.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Fecha.o Fecha.cpp
 
 ${OBJECTDIR}/Incripcion.o: Incripcion.cpp
 	${MKDIR} -p ${OBJECTDIR}
