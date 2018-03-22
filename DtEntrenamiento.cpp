@@ -22,7 +22,10 @@ bool DtEntrenamiento::getEnRambla(){
 }
 DtEntrenamiento::DtEntrenamiento() {
 }
-
+DtEntrenamiento::DtEntrenamiento(int id, string nombre, Turno turno, bool enRambla){
+    DtClase(id, nombre, turno);
+    this->enRambla = enRambla;
+}
 DtEntrenamiento::DtEntrenamiento(const DtEntrenamiento& orig) {
 }
 

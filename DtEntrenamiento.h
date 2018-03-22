@@ -16,6 +16,7 @@
 #include "DtClase.h"
 class DtEntrenamiento : public DtClase{
 public:
+    DtEntrenamiento(int, string, Turno, bool);
     DtEntrenamiento();
     DtEntrenamiento(const DtEntrenamiento& orig);
     virtual ~DtEntrenamiento();

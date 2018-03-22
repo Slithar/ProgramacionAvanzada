@@ -19,6 +19,7 @@ using namespace std;
 class DtClase {
 public:
     DtClase();
+    DtClase(int,string, Turno);
     DtClase(const DtClase& orig);
     virtual ~DtClase();
     

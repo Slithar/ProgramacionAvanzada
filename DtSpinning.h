@@ -16,6 +16,7 @@
 #include "DtClase.h"
 class DtSpinning : public DtClase {
 public:
+    DtSpinning(int, string, Turno, int);
     DtSpinning();
     DtSpinning(const DtSpinning& orig);
     virtual ~DtSpinning();

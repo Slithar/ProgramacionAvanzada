@@ -14,7 +14,7 @@
 #include <cstdlib>
 #include <iostream>
 #include<list>
-#include <cstring>
+#include <string>
 #include "Clase.h"
 #include "Spinning.h"
 #include "Entrenamiento.h"
@@ -22,41 +22,38 @@
 #include "DtSocio.h"
 #include "Inscripcion.h"
 #include "eTurno.h"
+#include "DtClase.h"
+#include "DtSpinning.h"
+#include "DtEntrenamiento.h"
 using namespace std;
-int const MAX_SOCIOS = 1;
+int const MAX_SOCIOS = 10, MAX_CLASES = 10;
 int CantSocios = 0;
+int CantClases = 0;
+
 Socio* arreglo_socios[MAX_SOCIOS];
+Clase* arreglo_clases[MAX_CLASES];
 /*
  * 
  */
 void mostrarSocios();
 void agregarSocio(int);
 bool existeSocio(string);
+void pedirDatosClase();
+void agregarClase(DtClase*&);
 int main(int argc, char** argv) {
-    /*std::list<Clase*> ListaClase;
-    Clase *p = new Spinning();
-    ListaClase.push_front(p);
-    p->setNombre("SpinningCami");
-    p->setId(1);
-    Turno T = Turno::Manana;
-    //cout<<"Turno: "+std::to_string(T) << end;
-    try{
-        cout<<"Id de la clase: "+ std::to_string(p->getId()) + "\nNombre de la clase: " + p->getNombre() <<endl;    
-    }
-    catch(const std::invalid_argument& ia){
-        cout<<"Argumento Invalido: "<<ia.what();
-    }*/
     int opcionMenu;
     do{
-        cout<<"\n1-Agregar socio\n2- Mostrar socios\n0- Salir\n";
+        cout<<"\n1- Agregar socio\n2- Mostrar socios\n3- Agregar clase\n0- Salir\n";
         cin>>opcionMenu;
         switch(opcionMenu){
             case 1:
                 agregarSocio(CantSocios);
-                CantSocios++;
                 break;
             case 2:
                 mostrarSocios();
+                break;
+            case 3:
+                pedirDatosClase();
                 break;
             case 0:
                 break;
@@ -70,6 +67,63 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+void pedirDatosClase(){
+    int id,optT, cantBicicletas;
+    string nombre;
+    bool enRambla;
+    DtClase* clase;
+    Turno t;
+    cout<<"\nIngrese ID de la clase\n";
+    cin>>id;
+    cout<<"\nIngrese nombre de la clase\n";
+    cin>>nombre;
+    do{
+        cout<<"\nIngrese turno de la clase:\n1- Manana\n2- Tarde\n3- Noche\n";
+        cin>>optT;
+        switch(optT){
+            case 1:
+                t = Turno::Manana;
+                break;
+            case 2:
+                t = Turno::Tarde;
+                break;
+            case 3:
+                t = Turno::Noche;
+                break;
+            default:
+                break;
+        }
+    }while(optT != 1 && optT != 2 && optT != 3);
+    do{
+        cout<<"\nQue tipo de clase desea crear?\n1- Spinning\n2- Entrenamiento";
+        cin>>optT;
+        switch(optT){
+            case 1:
+                cout<<"\nIngrese la cantidad de bicicletas\n";
+                cin>>cantBicicletas;
+                clase  = new DtSpinning(id, nombre, t, cantBicicletas);
+                break;
+            case 2:
+                cout<<"\El entrenamiento es en rambla?\n1- Si\n2- No";
+                cin>>optT;
+                if(optT == 1){
+                    clase = new DtEntrenamiento(id, nombre, t, true);
+                }
+                else{
+                    clase = new DtEntrenamiento(id, nombre, t, false);
+                }
+                break;
+            default:
+                break;
+        }
+    }while(optT != 1 && optT != 2);
+    agregarClase(clase);
+}
+
+
+void agregarClase(DtClase*& clase){
+    
+}
 void agregarSocio(int flag){
     string ci, nombre;
     cout<<"\nIngrese el número de Cédula del nuevo socio\n";
@@ -82,6 +136,7 @@ void agregarSocio(int flag){
         Socio* s = new Socio(ci, nombre);
         try{
             arreglo_socios[flag] = s;
+            CantSocios++;
         }catch(const std::invalid_argument& ia){
             throw std::invalid_argument("Se ha exedido el número de socios");
         }

@@ -24,6 +24,10 @@ int DtSpinning::getCantBicicletas(){
 DtSpinning::DtSpinning() {
 }
 
+DtSpinning::DtSpinning(int id, string nombre, Turno turno, int cantBicicletas){
+    DtClase(id,nombre,turno);
+    this->cantBicicletas = cantBicicletas;
+}
 DtSpinning::DtSpinning(const DtSpinning& orig) {
 }
 

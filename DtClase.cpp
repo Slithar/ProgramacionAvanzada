@@ -37,6 +37,12 @@ Turno DtClase::getTurno(){
     return this->turno;
 }
 
+
+DtClase::DtClase(int id, string nombre, Turno turno){
+    this->id = id;
+    this->nombre = nombre;
+    this->turno = turno;
+}
 DtClase::DtClase() {
 }
 
