@@ -14,11 +14,13 @@
 #ifndef ENTRENAMIENTO_H
 #define ENTRENAMIENTO_H
 #include "Clase.h"
+#include "eTurno.h"
 using namespace std;
 class Entrenamiento : public Clase {
 private:
     bool enRambla;
 public:
+    Entrenamiento(int, string, Turno, bool);
     Entrenamiento();
     Entrenamiento(const Entrenamiento& orig);
     virtual ~Entrenamiento();
@@ -28,7 +30,6 @@ public:
     /*Setters*/
     
     void setEnRambla(bool);
-    
     /*Extra functions belonging to this class*/
     
     int cupo();

@@ -18,6 +18,13 @@ int Spinning::cupo(){
     return 0;
 }
 
+Spinning::Spinning(int id, string nombre, Turno t, int cantBicicletas) {
+    this->setId(id);
+    this->setNombre(nombre);
+    this->setTurno(t);
+    this->cantBicicletas = cantBicicletas;
+}
+
 int Spinning::getCantBicicletas(){
     return this->cantBicicletas;
 }

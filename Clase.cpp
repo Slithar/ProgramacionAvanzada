@@ -67,9 +67,10 @@ void Clase::setNombre(string nombre){
 Clase::Clase() {
 }
 
-Clase::Clase(int id, string nombre){
+Clase::Clase(int id, string nombre, Turno t){
     this->id = id;
     this->nombre = nombre;
+    this->turno = t;
 }
 
 Clase::Clase(const Clase& orig) {

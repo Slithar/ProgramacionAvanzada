@@ -39,7 +39,7 @@ void mostrarSocios();
 void agregarSocio(int);
 bool existeSocio(string);
 void pedirDatosClase();
-void agregarClase(DtClase*&);
+void agregarClase(DtClase&);
 int main(int argc, char** argv) {
     int opcionMenu;
     do{
@@ -71,12 +71,14 @@ void pedirDatosClase(){
     int id,optT, cantBicicletas;
     string nombre;
     bool enRambla;
-    DtClase* clase;
+    DtClase clase;
     Turno t;
     cout<<"\nIngrese ID de la clase\n";
     cin>>id;
+    clase.setId(id);
     cout<<"\nIngrese nombre de la clase\n";
     cin>>nombre;
+    clase.setNombre(nombre);
     do{
         cout<<"\nIngrese turno de la clase:\n1- Manana\n2- Tarde\n3- Noche\n";
         cin>>optT;
@@ -94,36 +96,45 @@ void pedirDatosClase(){
                 break;
         }
     }while(optT != 1 && optT != 2 && optT != 3);
-    do{
-        cout<<"\nQue tipo de clase desea crear?\n1- Spinning\n2- Entrenamiento";
-        cin>>optT;
-        switch(optT){
-            case 1:
-                cout<<"\nIngrese la cantidad de bicicletas\n";
-                cin>>cantBicicletas;
-                clase  = new DtSpinning(id, nombre, t, cantBicicletas);
-                break;
-            case 2:
-                cout<<"\El entrenamiento es en rambla?\n1- Si\n2- No";
-                cin>>optT;
-                if(optT == 1){
-                    clase = new DtEntrenamiento(id, nombre, t, true);
-                }
-                else{
-                    clase = new DtEntrenamiento(id, nombre, t, false);
-                }
-                break;
-            default:
-                break;
-        }
-    }while(optT != 1 && optT != 2);
+    clase.SetTurno(t);
+    
     agregarClase(clase);
 }
 
 
-void agregarClase(DtClase*& clase){
-    
+void agregarClase(DtClase& clase){
+    int optT, cantBicicletas;
+    do{
+        cout<<"\nQue tipo de clase desea crear?\n1- Spinning\n2- Entrenamiento\n";
+        cin>>optT;
+        if(optT == 1){
+            cout<<"\nIngrese la cantidad de bicicletas\n";
+            cin>>cantBicicletas;
+            Spinning* claseSpinning  = new Spinning(clase.getId(), clase.getNombre(), clase.getTurno(), cantBicicletas);
+            arreglo_clases[CantClases] = claseSpinning;
+            CantClases++;
+        }
+        else if(optT == 2){
+            cout<<"\El entrenamiento es en rambla?\n1- Si\n2- No\n";
+            cin>>optT;
+            if(optT == 1){
+                Entrenamiento* claseEntrenamiento = new Entrenamiento(clase.getId(), clase.getNombre(), clase.getTurno(), true);
+                arreglo_clases[CantClases] = claseEntrenamiento;
+                CantClases++;
+            }
+            else{
+               Entrenamiento* claseEntrenamiento = new Entrenamiento(clase.getId(), clase.getNombre(), clase.getTurno(), false);
+               arreglo_clases[CantClases] = claseEntrenamiento;
+               CantClases++;
+            }
+        }
+        else{
+            cout<<"\nOpción incorrecta\n";
+        }
+    }while(optT != 1 && optT != 2);
 }
+
+
 void agregarSocio(int flag){
     string ci, nombre;
     cout<<"\nIngrese el número de Cédula del nuevo socio\n";

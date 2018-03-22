@@ -26,7 +26,7 @@ private:
     
 
 public:
-    Clase(int, string);
+    Clase(int, string, Turno);
     Clase();
     Clase(const Clase& orig);
     virtual ~Clase();

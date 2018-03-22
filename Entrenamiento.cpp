@@ -13,7 +13,6 @@
 
 #include "Entrenamiento.h"
 
-
 void Entrenamiento::setEnRambla(bool enRambla){
     this->enRambla = enRambla;
 }
@@ -33,4 +32,12 @@ Entrenamiento::Entrenamiento(const Entrenamiento& orig) {
 
 Entrenamiento::~Entrenamiento() {
 }
+
+Entrenamiento::Entrenamiento(int id, string nombre, Turno t , bool rambla) {
+    this->setId(id);
+    this->setNombre(nombre);
+    this->setTurno(t);
+    this->enRambla = rambla;
+}
+
 

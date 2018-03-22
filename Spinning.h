@@ -20,6 +20,7 @@ class Spinning : public Clase {
 private:
     int cantBicicletas;
 public:
+    Spinning(int, string, Turno, int);
     Spinning();
     Spinning(const Spinning& orig);
     virtual ~Spinning();
