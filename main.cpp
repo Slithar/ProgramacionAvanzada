@@ -38,12 +38,15 @@ Clase* arreglo_clases[MAX_CLASES];
 void mostrarSocios();
 void agregarSocio(int);
 bool existeSocio(string);
+
 void pedirDatosClase();
 void agregarClase(DtClase&);
+void mostrarClases();
+bool existeClase(int);
 int main(int argc, char** argv) {
     int opcionMenu;
     do{
-        cout<<"\n1- Agregar socio\n2- Mostrar socios\n3- Agregar clase\n0- Salir\n";
+        cout<<"\n1- Agregar socio\n2- Mostrar socios\n3- Agregar clase\n4- Mostrar clases\n0- Salir\n";
         cin>>opcionMenu;
         switch(opcionMenu){
             case 1:
@@ -54,6 +57,9 @@ int main(int argc, char** argv) {
                 break;
             case 3:
                 pedirDatosClase();
+                break;
+            case 4:
+                mostrarClases();
                 break;
             case 0:
                 break;
@@ -66,39 +72,72 @@ int main(int argc, char** argv) {
     
     return 0;
 }
+bool existeClase(int id){
+    bool r = false;
+    for(int a=0; a<CantClases;a++){
+        if(arreglo_clases[a]->getId() == id)
+            r = true;
+    }
+    return r;
+}
+
+void mostrarClases(){
+ for(int a=0; a<CantClases; a++){
+     cout<<"\nID: "+std::to_string(arreglo_clases[a]->getId())+"\nNombre: "+arreglo_clases[a]->getNombre()+"\n";
+     if(arreglo_clases[a]->getTurno() == Turno::Manana)
+         cout<<"Turno: Manana\n";
+     else if (arreglo_clases[a]->getTurno() == Turno::Tarde)
+         cout<<"Turno: Tarde\n";
+     else
+         cout<<"Turno: Noche\n";
+     if( Spinning* s = dynamic_cast<Spinning*>(arreglo_clases[a])){
+         cout<<"Bicicletas: "+std::to_string(s->getCantBicicletas())+"\n";
+     }
+     else{
+         Entrenamiento* e = dynamic_cast<Entrenamiento*>(arreglo_clases[a]);
+         cout<<"En rambla: "+std::to_string(e->getEnRambla())+"\n";
+     }
+ }   
+}
 
 void pedirDatosClase(){
-    int id,optT, cantBicicletas;
-    string nombre;
-    bool enRambla;
-    DtClase clase;
-    Turno t;
-    cout<<"\nIngrese ID de la clase\n";
-    cin>>id;
-    clase.setId(id);
-    cout<<"\nIngrese nombre de la clase\n";
-    cin>>nombre;
-    clase.setNombre(nombre);
-    do{
-        cout<<"\nIngrese turno de la clase:\n1- Manana\n2- Tarde\n3- Noche\n";
-        cin>>optT;
-        switch(optT){
-            case 1:
-                t = Turno::Manana;
-                break;
-            case 2:
-                t = Turno::Tarde;
-                break;
-            case 3:
-                t = Turno::Noche;
-                break;
-            default:
-                break;
-        }
-    }while(optT != 1 && optT != 2 && optT != 3);
-    clase.SetTurno(t);
-    
-    agregarClase(clase);
+    try{
+        int id,optT, cantBicicletas;
+        string nombre;
+        bool enRambla;
+        DtClase clase;
+        Turno t;
+        cout<<"\nIngrese ID de la clase\n";
+        cin>>id;
+        if(existeClase(id))
+            throw std::invalid_argument("El ID de la clase ya existe");
+        clase.setId(id);
+        cout<<"\nIngrese nombre de la clase\n";
+        cin>>nombre;
+        clase.setNombre(nombre);
+        do{
+            cout<<"\nIngrese turno de la clase:\n1- Manana\n2- Tarde\n3- Noche\n";
+            cin>>optT;
+            switch(optT){
+                case 1:
+                    t = Turno::Manana;
+                    break;
+                case 2:
+                    t = Turno::Tarde;
+                    break;
+                case 3:
+                    t = Turno::Noche;
+                    break;
+                default:
+                    break;
+            }
+        }while(optT != 1 && optT != 2 && optT != 3);
+        clase.SetTurno(t);
+        agregarClase(clase);
+    }
+    catch(std::invalid_argument &ia){
+        cout<< ia.what() << endl;
+    }
 }
 
 
@@ -136,22 +175,23 @@ void agregarClase(DtClase& clase){
 
 
 void agregarSocio(int flag){
-    string ci, nombre;
-    cout<<"\nIngrese el número de Cédula del nuevo socio\n";
-    cin>>ci;
-    if(existeSocio(ci) == true){
-        cout<<"\nYa existe un usuario con esta cédula\n";
-    }else{
-        cout<<"\nIngrese el nombre del nuevo socio\n";
-        cin>>nombre;
-        Socio* s = new Socio(ci, nombre);
-        try{
-            arreglo_socios[flag] = s;
-            CantSocios++;
-        }catch(const std::invalid_argument& ia){
-            throw std::invalid_argument("Se ha exedido el número de socios");
+    try{
+        string ci, nombre;
+        cout<<"\nIngrese el número de Cédula del nuevo socio\n";
+        cin>>ci;
+        if(existeSocio(ci) == true){
+            throw std::invalid_argument("\nYa existe un usuario con esta cédula\n");
+        }else{
+            cout<<"\nIngrese el nombre del nuevo socio\n";
+            cin>>nombre;
+            Socio* s = new Socio(ci, nombre);
+                arreglo_socios[flag] = s;
+                CantSocios++;
         }
-    }  
+    }
+    catch(std::invalid_argument& ia){
+        cout<<ia.what()<<endl;
+    }
 }
 
 bool existeSocio(string CI){
