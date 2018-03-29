@@ -24,6 +24,7 @@ public:
     void setCantBicicletas(int);
     
     int getCantBicicletas();
+     friend ostream &operator<<(ostream&,DtSpinning* &c);
 private:
     int cantBicicletas;
 };

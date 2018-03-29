@@ -16,10 +16,14 @@
 #include<string>
 #include "eTurno.h"
 #include "Inscripcion.h"
+
+#define MAX_Inscripcion 50
+
+
 using namespace std;
 class Clase {
 private:
-    Inscripcion *inscripciones[50];
+    Inscripcion *inscripciones[MAX_Inscripcion];
     int id;
     string nombre;
     Turno turno;
@@ -35,15 +39,17 @@ public:
     void setId(int);
     void setNombre(string);
     void setTurno(Turno);
-    void setInscripcion(Inscripcion*[]);
-    /*Getters*/
+        /*Getters*/
     int getId();
     string getNombre();
     Turno getTurno();
     Inscripcion** getInscripcion();
-    
+    Socio * socioEnClase(string ci);
+    void setInscripcion(Inscripcion * inscripcion);
     /*Extra functions belonging to this class*/
     virtual int cupo()=0;
+   
+    
 };
 
 #endif /* CLASE_H */

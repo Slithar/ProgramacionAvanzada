@@ -32,3 +32,10 @@ DtEntrenamiento::DtEntrenamiento(const DtEntrenamiento& orig) {
 DtEntrenamiento::~DtEntrenamiento() {
 }
 
+ostream& operator<<(ostream& output, DtEntrenamiento* & clase){
+    output <<"\nID Clase: "<<clase->getId()
+            <<"\nNombre: "<<clase->getNombre()
+            <<"\nTurno: "<<clase->getTurno()
+            <<"\nEn Rambla: "<<clase->getEnRambla();
+    return output;
+}

@@ -34,3 +34,10 @@ DtSpinning::DtSpinning(const DtSpinning& orig) {
 DtSpinning::~DtSpinning() {
 }
 
+ostream& operator<<(ostream& output, DtSpinning* & clase){
+    output <<"\nID Clase: "<<clase->getId()
+            <<"\nNombre: "<<clase->getNombre()
+            <<"\nTurno: "<<clase->getTurno()
+            <<"\nCantidad Bicicletas: "<<clase->getCantBicicletas();
+    return output;
+}

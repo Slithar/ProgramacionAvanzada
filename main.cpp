@@ -38,15 +38,16 @@ Clase* arreglo_clases[MAX_CLASES];
 void mostrarSocios();
 void agregarSocio(int);
 bool existeSocio(string);
-
+void agregarInscripcion(string,int, Fecha);
 void pedirDatosClase();
 void agregarClase(DtClase&);
 void mostrarClases();
 bool existeClase(int);
+void inscribirSocio();
 int main(int argc, char** argv) {
     int opcionMenu;
     do{
-        cout<<"\n1- Agregar socio\n2- Mostrar socios\n3- Agregar clase\n4- Mostrar clases\n0- Salir\n";
+        cout<<"\n1- Agregar socio\n2- Mostrar socios\n3- Agregar clase\n4- Mostrar clases\n5- Inscribir a clasen\n0- Salir\n";
         cin>>opcionMenu;
         switch(opcionMenu){
             case 1:
@@ -60,6 +61,9 @@ int main(int argc, char** argv) {
                 break;
             case 4:
                 mostrarClases();
+                break;
+            case 5:
+                inscribirSocio();
                 break;
             case 0:
                 break;
@@ -79,6 +83,50 @@ bool existeClase(int id){
             r = true;
     }
     return r;
+}
+void inscribirSocio(){
+    int dia,mes,anio,codClase;
+string ciS;
+try{   
+cout<<"Incribir Socio a clase:\n";
+    cout<<"Ingrese la cedula:\n";
+    cin>>ciS;
+    cout<<"Ingrese el codigo de la clase:\n";
+    cin>>codClase;
+    if((existeSocio(ciS)!=false)&&(existeClase(codClase)!=false)){
+    cout<<"Ingrese la fecha:\n";
+    cout<<"Dia:\n";
+    cin>>dia;
+    cout<<"Mes:\n";
+    cin>>mes;
+    cout<<"Año:\n";
+    cin>>anio;
+    Fecha fecha;
+    fecha.setDia(dia);
+    fecha.setMes(mes);
+    fecha.setAnio(anio);
+    agregarInscripcion(ciS,codClase,fecha);
+    }
+    else {  throw std::invalid_argument("El socio o la clase no existen");
+        }
+    
+} catch(std::invalid_argument &ia){
+        cout<< ia.what() << endl;
+    }
+}
+void agregarInscripcion(string ci, int codC, Fecha fecha){
+    try{
+    Socio * soc = existeSocio(ci);
+    Clase* clas = existeClase(codC);
+    Inscripcion * ins;
+    if (clas->socioEnClase(ci)==NULL){
+        ins= new Inscripcion(ci,fecha);
+        clas->setInscripcion(ins);
+    }
+    else{throw std::invalid_argument("El socio ya esta inscripto a la clase.");}
+    }
+    catch(std::invalid_argument & ia){
+    cout<< ia.what() <<endl;}
 }
 
 void mostrarClases(){
@@ -209,3 +257,4 @@ void mostrarSocios(){
         cout<<"\nCedula: "+arreglo_socios[a]->getCI()+" Nombre: "+arreglo_socios[a]->getNombre()+"\n";
     }
 }
+

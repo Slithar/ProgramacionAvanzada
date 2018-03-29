@@ -30,6 +30,7 @@ public:
     /*Setters*/
     void setNombre(string);
     void setCI(string);
+    //Clase * claseEnSocio(int idClase);
 };
 
 #endif /* SOCIO_H */

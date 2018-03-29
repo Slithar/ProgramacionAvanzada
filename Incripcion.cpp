@@ -38,3 +38,7 @@ Inscripcion::Inscripcion(const Inscripcion& orig) {
 Inscripcion::~Inscripcion() {
 }
 
+Inscripcion::Inscripcion(Socio * socio, Fecha fech) {
+    this->socio=socio;
+    this->fecha=fech;
+}
