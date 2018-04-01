@@ -12,6 +12,7 @@
  */
 
 #include "DtSpinning.h"
+#include<sstream>
 
 void DtSpinning::setCantBicicletas(int cantBicicletas){
     this->cantBicicletas = cantBicicletas;
@@ -35,7 +36,12 @@ DtSpinning::~DtSpinning() {
 }
 
 ostream& operator<<(ostream& output, DtSpinning* & clase){
-    output <<"\nID Clase: "<<clase->getId()
+ std::string cadena = "";
+ 
+    std::stringstream out;
+    out << clase->getId();
+    cadena=out.str();
+    output <<"\nID Clase: "<<cadena
             <<"\nNombre: "<<clase->getNombre()
             <<"\nTurno: "<<clase->getTurno()
             <<"\nCantidad Bicicletas: "<<clase->getCantBicicletas();

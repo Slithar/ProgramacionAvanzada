@@ -15,6 +15,7 @@
 #include <iostream>
 #include<list>
 #include <string>
+#include<sstream>
 #include "Clase.h"
 #include "Spinning.h"
 #include "Entrenamiento.h"
@@ -44,6 +45,11 @@ void agregarClase(DtClase&);
 void mostrarClases();
 bool existeClase(int);
 void inscribirSocio();
+Socio* existeSociop(string);
+Clase* existeClasep(int);
+
+
+
 int main(int argc, char** argv) {
     int opcionMenu;
     do{
@@ -116,11 +122,11 @@ cout<<"Incribir Socio a clase:\n";
 }
 void agregarInscripcion(string ci, int codC, Fecha fecha){
     try{
-    Socio * soc = existeSocio(ci);
-    Clase* clas = existeClase(codC);
+    Socio * soc = existeSociop(ci);
+    Clase* clas = existeClasep(codC);
     Inscripcion * ins;
     if (clas->socioEnClase(ci)==NULL){
-        ins= new Inscripcion(ci,fecha);
+        ins= new Inscripcion(soc,fecha);
         clas->setInscripcion(ins);
     }
     else{throw std::invalid_argument("El socio ya esta inscripto a la clase.");}
@@ -240,6 +246,22 @@ void agregarSocio(int flag){
     catch(std::invalid_argument& ia){
         cout<<ia.what()<<endl;
     }
+}
+Socio* existeSociop(string cedula){
+    for (int i=0;i<CantSocios;i++){
+        if(arreglo_socios[i] !=NULL && arreglo_socios[i]->getCI().compare(cedula)==true)
+            return arreglo_socios[i];
+    }
+    return NULL;
+    
+}
+Clase* existeClasep(int cod){
+    for (int i=0;i<CantClases;i++){
+        if(arreglo_clases[i] != NULL && arreglo_clases[i]->getId()==cod ){
+            return arreglo_clases[i];
+        }
+    }
+    return NULL;
 }
 
 bool existeSocio(string CI){

@@ -49,14 +49,14 @@ Socio* Clase::socioEnClase(string ci) {
 }
 
 
-void Clase::setInscripcion(Inscripcion* inscripcion) {
+void Clase::setInscripcion(Inscripcion *inscripcion) {
     int i=0;
     for(i;i<MAX_Inscripcion;i++){
         if(this->inscripciones[i]==NULL){
             break;
         }else{return throw std::invalid_argument("Maximo de inscripciones alcanzado");}
     }
-    this->inscripciones=inscripcion;
+    this->inscripciones[i]=inscripcion;
 }
 
 void Clase::setTurno(Turno turno){
@@ -73,7 +73,7 @@ void Clase::setNombre(string nombre){
 /*Creators and destroyers*/
 Clase::Clase() {
 }
-Socio * Socio::socioEnClase(string ci);
+//Socio * Socio::socioEnClase(string ci);
 
 Clase::Clase(int id, string nombre, Turno t){
     this->id = id;
