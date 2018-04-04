@@ -43,5 +43,4 @@ Inscripcion::Inscripcion(Socio* socio, Fecha fech) {
     this->fecha->setAnio(fech.getAnio());
     this->fecha->setDia(fech.getDia());
     this->fecha->setMes(fech.getMes());
-
 }

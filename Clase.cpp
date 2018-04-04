@@ -39,13 +39,13 @@ string Clase::getNombre(){
 
 
 Socio* Clase::socioEnClase(string ci) {
+    Socio* np = NULL;
     for(int i=0;i<MAX_Inscripcion;i++){
         if(this->inscripciones[i]->getSocio()->getCI().compare(ci)==0){
-        return this->inscripciones[i]->getSocio();
-        break;}
+            return this->inscripciones[i]->getSocio();
+        }
     }
-    return NULL;
-    
+    return np;
 }
 
 
@@ -54,7 +54,10 @@ void Clase::setInscripcion(Inscripcion *inscripcion) {
     for(i;i<MAX_Inscripcion;i++){
         if(this->inscripciones[i]==NULL){
             break;
-        }else{return throw std::invalid_argument("Maximo de inscripciones alcanzado");}
+        }
+        else{
+            return throw std::invalid_argument("Maximo de inscripciones alcanzado");
+        }
     }
     this->inscripciones[i]=inscripcion;
 }

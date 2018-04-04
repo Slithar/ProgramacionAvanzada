@@ -23,7 +23,7 @@
 using namespace std;
 class Clase {
 private:
-    Inscripcion *inscripciones[MAX_Inscripcion];
+    Inscripcion* inscripciones[MAX_Inscripcion];
     int id;
     string nombre;
     Turno turno;
