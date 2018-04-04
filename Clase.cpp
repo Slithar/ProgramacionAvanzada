@@ -13,6 +13,7 @@
 
 #include "Clase.h"
 #include<string.h>
+#include <stdexcept>
 
 
 /*Getters*/
@@ -37,19 +38,25 @@ string Clase::getNombre(){
 /*Setters*/
 
 
+Socio* Clase::socioEnClase(string ci) {
+    for(int i=0;i<MAX_Inscripcion;i++){
+        if(this->inscripciones[i]->getSocio()->getCI().compare(ci)==0){
+        return this->inscripciones[i]->getSocio();
+        break;}
+    }
+    return NULL;
+    
+}
 
-void Clase::setInscripcion(Inscripcion* inscripcion[]) {
-    int aux=0;
-    while(this->inscripciones[aux] != NULL){
-        aux++;
+
+void Clase::setInscripcion(Inscripcion *inscripcion) {
+    int i=0;
+    for(i;i<MAX_Inscripcion;i++){
+        if(this->inscripciones[i]==NULL){
+            break;
+        }else{return throw std::invalid_argument("Maximo de inscripciones alcanzado");}
     }
-    int a=0;
-    while(inscripcion[a] != NULL){
-        a++;
-    }
-    for(int i=0; i<a;i++){
-        this->inscripciones[aux] = inscripcion[i];
-    }
+    this->inscripciones[i]=inscripcion;
 }
 
 void Clase::setTurno(Turno turno){
@@ -66,6 +73,7 @@ void Clase::setNombre(string nombre){
 /*Creators and destroyers*/
 Clase::Clase() {
 }
+//Socio * Socio::socioEnClase(string ci);
 
 Clase::Clase(int id, string nombre, Turno t){
     this->id = id;

@@ -12,7 +12,7 @@
  */
 
 #include "DtEntrenamiento.h"
-
+#include <sstream>
 void DtEntrenamiento::setEnRambla(bool enRambla){
     this->enRambla = enRambla;
 }
@@ -32,3 +32,16 @@ DtEntrenamiento::DtEntrenamiento(const DtEntrenamiento& orig) {
 DtEntrenamiento::~DtEntrenamiento() {
 }
 
+ostream& operator<<(ostream& output, DtEntrenamiento* & clase){
+    std::string cadena = "";
+ 
+    std::stringstream out;
+    out << clase->getId();
+    cadena=out.str();
+  
+    output <<"\nID Clase: "<<cadena
+            <<"\nNombre: "<<clase->getNombre()
+            <<"\nTurno: "<<clase->getTurno()
+            <<"\nEn Rambla: "<<clase->getEnRambla();
+    return output;
+}

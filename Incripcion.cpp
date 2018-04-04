@@ -38,3 +38,10 @@ Inscripcion::Inscripcion(const Inscripcion& orig) {
 Inscripcion::~Inscripcion() {
 }
 
+Inscripcion::Inscripcion(Socio* socio, Fecha fech) {
+    this->socio=socio;
+    this->fecha->setAnio(fech.getAnio());
+    this->fecha->setDia(fech.getDia());
+    this->fecha->setMes(fech.getMes());
+
+}
