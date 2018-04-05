@@ -16,10 +16,10 @@
 
 class Fecha {
 public:
-    Fecha();
+    Fecha (int,int,int);
     Fecha(const Fecha& orig);
     virtual ~Fecha();
-    
+  //  Fecha(int,int,int);
     int getDia();
     int getMes();
     int getAnio();
@@ -27,6 +27,7 @@ public:
     void setDia(int);
     void setMes(int);
     void setAnio(int);
+    
 private:
     int dia;
     int mes;

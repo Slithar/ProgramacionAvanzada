@@ -29,6 +29,7 @@
 #include "DtEntrenamiento.h"
 #include "Fecha.h"
 using namespace std;
+
 int const MAX_SOCIOS = 10, MAX_CLASES = 10;
 int CantSocios = 0;
 int CantClases = 0;
@@ -41,7 +42,7 @@ Clase* arreglo_clases[MAX_CLASES];
 void mostrarSocios();
 void agregarSocio(int);
 bool existeSocio(string);
-void agregarInscripcion(string,int, Fecha);
+void agregarInscripcion(string,int, Fecha*);
 void pedirDatosClase();
 void agregarClase(DtClase&);
 void mostrarClases();
@@ -51,6 +52,7 @@ Socio* existeSociop(string);
 Clase* existeClasep(int);
 
 
+Fecha* armarFecha();
 
 int main(int argc, char** argv) {
     int opcionMenu;
@@ -84,6 +86,21 @@ int main(int argc, char** argv) {
     
     return 0;
 }
+Fecha* armarFecha(){
+    int dia=0;int mes=0;int anio=0;
+    cout<<"Ingrese la fecha: \n";
+    cout<<"Ingrese dia: \n";
+    cin>>dia;
+    cout<<"Ingrese el mes: \n";
+    cin>>mes;
+    cout<<"Ingrese el año: \n";
+    cin>>anio;
+    
+    Fecha * fech=new Fecha(dia,mes,anio);
+    
+    
+    
+}
 bool existeClase(int id){
     bool r = false;
     for(int a=0; a<CantClases;a++){
@@ -94,8 +111,9 @@ bool existeClase(int id){
 }
 void inscribirSocio(){
     int dia,mes,codClase;
+                int anio;
     string ciS;
-    Fecha fecha;
+    
     try{   
         cout<<"Incribir Socio a clase:\n";
         cout<<"Ingrese la cedula:\n";
@@ -108,19 +126,17 @@ void inscribirSocio(){
             cin >> dia;
             cout << "Mes:\n";
             cin >> mes;
-            int anio;
-            do{
                 cout << "Año:\n";
                 cin >> anio;
+            
+           /* do{
                 cout << "This fucking worked";
                 if(cin.fail()){
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 }   
-            }while(cin.fail());
-            fecha.setDia(dia);
-            fecha.setMes(mes);
-            fecha.setAnio(anio);
+            }while(cin.fail());*/
+    Fecha* fecha = new Fecha(dia,mes,anio);
             agregarInscripcion(ciS,codClase,fecha);
         }
         else{ 
@@ -132,7 +148,7 @@ void inscribirSocio(){
         cout<< ia.what() << endl;
     }
 }
-void agregarInscripcion(string ci, int codC, Fecha fecha){
+void agregarInscripcion(string ci, int codC, Fecha* fecha){
     try{
         cout<<"Here";
         Socio * soc = existeSociop(ci);

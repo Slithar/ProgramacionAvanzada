@@ -21,7 +21,7 @@ public:
     Inscripcion();
     Inscripcion(const Inscripcion& orig);
     virtual ~Inscripcion();
-    Inscripcion(Socio*,Fecha);
+    Inscripcion(Socio*,Fecha*);
     
     /*Getters*/
     
